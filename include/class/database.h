@@ -18,14 +18,13 @@ class DataBase
 
         MYSQL *connect;
 
-        bool persist();
         void finish_with_error( MYSQL *connect);
 
 
     public:
         DataBase();
         Input findById(const std::string *key);
-        bool writing(const Answer *answer);      
+        bool persist(const Answer *answer);      
 };
 
 

@@ -2,6 +2,7 @@
 #define ANSWER_H
 
 #include<string>
+#include<iostream>
 #include<map>
 #include"item.h"
 
@@ -16,7 +17,10 @@ class Answer
         Itens itens;
 
     public:
-        Answer()=default;
+        Answer(){
+            this->capacityUsed = 0;
+            this->Fo = 0;
+        }
         
         void setKey(std::string *key) {
             this->key = *key;
@@ -34,6 +38,10 @@ class Answer
             this->itens = *itens;
         }
 
+        void setItem( Item *item, std::string *key){
+            this->itens[*key] = *item;
+        }
+
         std::string getKey(){
             return this->key;
         }
@@ -48,6 +56,17 @@ class Answer
 
         Itens getItens(){
             return this->itens;
+        }
+
+        void print(){
+            std::cout<<"Resultado do Problema "<<this->key <<"\n";
+            std::cout<<"Função Objetiva = "<<this->Fo <<"\n";
+            std::cout<<"Capacidade Utilizada = "<<this->capacityUsed<<"\n";
+            for( auto &item : this->itens){
+                std::cout<<"Item = "<<item.second.key <<"\t";
+                std::cout<<"Beneficio = "<<item.second.benefit <<"\t";
+                std::cout<<"Peso = "<<item.second.weight <<"\n";
+            }
         }
 };
 #endif

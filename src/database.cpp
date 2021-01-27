@@ -96,6 +96,14 @@ Input DataBase::findById(const std::string *key){
 //  FINISH WITH ERROR
 //
 //==========================================
+bool DataBase::persist(const Answer *answer)
+{
+    
+    return true;
+}
+//  FINISH WITH ERROR
+//
+//==========================================
 void DataBase::finish_with_error( MYSQL *connect)
 {
     std::cerr<< mysql_error(connect)<<"\n";

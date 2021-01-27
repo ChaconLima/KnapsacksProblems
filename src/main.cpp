@@ -2,23 +2,24 @@
 #include<string>
 
 #include "database.h"
-#include "input.h"
+#include "greedyHeuristics.h"
 
 using std::cout;
 using std::endl;
 int main( int argc, char *argv[] )
 {
 
-    DataBase dataBase;
-    Input input;
+    DataBase database;
+    std::string key = argv[1];
 
-    std::string key = "2";
-    
-    input = dataBase.findById(&key);
-    
+    Input input = database.findById(&key);
 
-    cout<<input.getMaximunCapacity()<<"\n"<<input.getKey()<<"\n";
+    GreedyHeuristics greedyHeuristics( &input );
 
+    Answer answer = greedyHeuristics.getAnswer();
+    answer.print();
+
+   
 
     return 0;
 
